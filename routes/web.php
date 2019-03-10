@@ -48,7 +48,7 @@ Route::group(['middleware' => 'auth', 'prefix' => 'setting'], function () {
 });
 
 // Link
-Route::get('link', 'LinkController@index');
+// Route::get('link', 'LinkController@index');
 
 // Category
 Route::group(['prefix' => 'category'], function () {

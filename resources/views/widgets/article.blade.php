@@ -17,9 +17,9 @@
                     <div class="meta">
                         <span class="cinema">{{ $article->subtitle }}</span>
                     </div>
-                    <div class="description">
+                    {{-- <div class="description">
                         {{ $article->meta_description }}
-                    </div>
+                    </div> --}}
                     <div class="extra">
                         @foreach($article->tags as $tag)
                         <a href="{{ url('tag', ['tag' => $tag->tag]) }}">

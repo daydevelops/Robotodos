@@ -16,7 +16,7 @@
 
 # PJ Blog
 
-This is a powerful blog, I try to build the blog more beautiful, more convenient. 
+This is a powerful blog, I try to build the blog more beautiful, more convenient.
 
 `Laravel 5.*` and `Vuejs 2.*` combined with the establishment of a good response and quickly dashboard, the dashboard made through the `Vuejs` component development.
 
@@ -81,19 +81,19 @@ Edit the `.env` file and set the `database` and other config for the system afte
 
 ### 2. Install the extended package dependency.
 
-Install the `Laravel` extended repositories: 
+Install the `Laravel` extended repositories:
 
 ```shell
 composer install -vvv
 ```
 
-Install the `Vuejs` extended repositories: 
+Install the `Vuejs` extended repositories:
 
 ```shel
 npm install
 ```
 
-Compile the js code: 
+Compile the js code:
 
 ```shel
 npm run dev
@@ -133,3 +133,9 @@ Support all ERC20 tokens. My Address:
 The project is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT).
 
 QQ Group: 272734386
+
+## Daydevelops Edits
+
+- fix comments vue components
+- general design and layout
+- remove links page

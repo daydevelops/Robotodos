@@ -23,9 +23,6 @@
                     </li>
                     @endif
                 </ul>
-                <div class="links">
-                    <a href="{{ url('link') }}">{{ lang('Links') }}</a>
-                </div>
             </div>
         </div>
     </div>
