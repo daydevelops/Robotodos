@@ -47,6 +47,7 @@ mix.webpackConfig(config)
 let themes = [
   'resources/sass/themes/default-theme.scss',
   'resources/sass/themes/gray-theme.scss',
+  'resources/sass/themes/daydev-theme.scss',
 ];
 
 themes.forEach((item) => {

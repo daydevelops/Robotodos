@@ -2,9 +2,11 @@
 
 @section('content')
     @component('particals.jumbotron')
-        <h3>{{ config('blog.article.title') }}</h3>
+		<hr>
+        <h1 class='oleo'>{{ config('blog.article.title') }}</h1>
 
-        <h6>{{ config('blog.article.description') }}</h6>
+        <h3>{{ config('blog.article.description') }}</h3>
+		<hr>
     @endcomponent
 
     @include('widgets.article')

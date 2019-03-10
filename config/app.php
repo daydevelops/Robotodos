@@ -12,7 +12,7 @@ return [
     | any other location as required by the application or its packages.
     */
 
-    'name' => env('APPLICATION_NAME') ?: 'PJ Blog',
+    'name' => env('APP_NAME') ?: 'PJ Blog',
 
     /*
     |--------------------------------------------------------------------------
@@ -51,7 +51,7 @@ return [
     |
     */
 
-    'url' => env('APP_URL', 'http://pigjian.app'),
+    'url' => env('APP_URL', 'https://blog.daydevelops.com'),
 
     /*
     |--------------------------------------------------------------------------

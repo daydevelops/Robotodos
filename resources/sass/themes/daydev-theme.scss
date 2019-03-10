@@ -1,0 +1,125 @@
+
+$daydev-blue: #5bc0de;
+$daydev-blue2: #44b0de;
+$daydev-bg: #C0FFEE;
+
+@import url('https://fonts.googleapis.com/css?family=Oleo+Script');
+@import url('https://fonts.googleapis.com/css?family=Nova+Flat');
+
+body {
+	color:black;
+	// font-family: 'Nova Flat', cursive;
+	font-size:1.2em;
+	background-color:#C0FFEE;
+}
+.oleo {
+	font-family: 'Oleo Script', cursive;
+}
+a {
+	color: #34495e;
+	text-decoration: none;
+}
+
+.navbar {
+	background-color: $daydev-blue;
+}
+
+.navbar-dark .navbar-nav .nav-link {
+	color: #fff;
+
+	&:focus {
+		color: #6289ad;
+		background-color: transparent;
+	}
+	&:hover {
+		color: #6289ad;
+		background-color: transparent;
+	}
+}
+
+.navbar-nav>li>.dropdown-menu {
+	border: none;
+
+	li a {
+		color: #6289ad;
+	}
+}
+
+.btn-success {
+	color: #fff;
+	background-color: #6289ad;
+	border-color: #6289ad;
+
+	&:hover {
+		color: #fff;
+		background-color: #4b6f91;
+		border-color: #486a8a;
+	}
+}
+
+.btn-primary {
+	color: #fff;
+	background-color: $daydev-blue;
+	border-color: black;
+
+	&:hover {
+		color: #fff;
+		background-color: $daydev-blue2;
+		border-color: black;
+	}
+}
+
+.navbar-nav>li>.dropdown-menu>li:focus, .navbar-nav>li>.dropdown-menu>li:hover {
+	text-decoration: none;
+	background-color: $daydev-blue;
+
+	a {
+		color: #fff;
+	}
+}
+
+.user-follow a.text {
+	color: #fff;
+}
+
+.form-control, .form-control:focus, input {
+	border-width: 2px;
+	box-shadow: none;
+	outline: 0;
+}
+.jumbotron.jumbotron-fluid {
+	background-color: $daydev-bg;
+	color:black;
+}
+
+.search input {
+	color: #fff;
+	border: 1px solid #fff;
+	background-color: transparent;
+
+	&::placeholder {
+		color: #fff;
+	}
+
+	&::-ms-input-placeholder {
+		color: #fff;
+	}
+
+	&::-ms-input-placeholder {
+		color: #fff;
+	}
+}
+
+.footer {
+	background-color: $daydev-blue;
+	color: #fff;
+	margin-top: 30px;
+
+	.copy-right {
+		background-color: $daydev-blue;
+	}
+
+	a:hover {
+		color: #6289ad;
+	}
+}

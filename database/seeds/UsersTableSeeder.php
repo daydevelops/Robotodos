@@ -16,7 +16,7 @@ class UsersTableSeeder extends Seeder
         $users = [
             [
                 'name' => 'admin',
-                'email' => 'admin@pigjian.com',
+                'email' => 'admin@admin.com',
                 'password' => Hash::make('admin'),
                 'status' => true,
                 'is_admin' => true,
@@ -27,7 +27,11 @@ class UsersTableSeeder extends Seeder
         ];
 
         DB::table('users')->insert($users);
-
+		factory(User::class,1)->create([
+			'name' => 'adam',
+			'email' => 'adamday1618@gmail.com',
+			'password' => Hash::make('adam'),
+		]);
         factory(User::class, 10)->create();
     }
 }
