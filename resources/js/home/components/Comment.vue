@@ -180,7 +180,7 @@ export default {
           this.content = ''
           this.isSubmiting = false
 
-          toastr.success('You publish the comment success!')
+          toastr.success('Comment Posted!')
         }).catch(({ response }) => {
           this.isSubmiting = false
           stack_error(response)
@@ -194,7 +194,7 @@ export default {
       this.$http.delete('comments/' + id)
         .then((response) => {
           this.comments.splice(index, 1)
-          toastr.success('You delete your comment success!')
+          toastr.success('Commented Deleted!')
         })
     },
     parse(html) {

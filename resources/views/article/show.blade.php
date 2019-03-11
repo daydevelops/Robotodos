@@ -49,19 +49,18 @@
             </div>
         </div>
     </div>
-
-    {{-- @if(Auth::guest())
-        <comment title="评论"
+    @if(Auth::guest())
+        <comment title="Comments"
                  commentable-type="articles"
                  commentable-id="{{ $article->id }}"></comment>
     @else
-        <comment title="评论"
+        <comment title="Comments"
                  username="{{ Auth::user()->name }}"
                  user-avatar="{{ Auth::user()->avatar }}"
                  commentable-type="articles"
                  commentable-id="{{ $article->id }}"
                  can-comment></comment>
-    @endif --}}
+    @endif
 
 @endsection
 

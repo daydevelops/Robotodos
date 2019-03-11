@@ -12,6 +12,11 @@ class CommentsTableSeeder extends Seeder
      */
     public function run()
     {
-        factory(Comment::class, 50)->create();
+		$user = App\User::where(['email'=>'adamday1618@gmail.com'])->first()->id;
+		factory(Comment::class,10)->create([
+			'commentable_id'=>App\Article::where(['user_id'=>$user])->first()->id,
+			'commentable_type'=>'articles'
+		]);
+        factory(Comment::class, 100)->create();
     }
 }

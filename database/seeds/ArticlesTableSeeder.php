@@ -12,6 +12,9 @@ class ArticlesTableSeeder extends Seeder
      */
     public function run()
     {
+		factory(Article::class,1)->create([
+			'user_id'=>App\User::where(['email'=>'adamday1618@gmail.com'])->first()->id
+		]);
         factory(Article::class, 20)->create();
     }
 }
