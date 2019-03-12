@@ -93,20 +93,20 @@ a {
 }
 
 .search input {
-	color: #fff;
-	border: 1px solid #fff;
+	color: #000;
+	border: 1px solid #000;
 	background-color: transparent;
 
 	&::placeholder {
-		color: #fff;
+		color: #000;
 	}
 
 	&::-ms-input-placeholder {
-		color: #fff;
+		color: #000;
 	}
 
 	&::-ms-input-placeholder {
-		color: #fff;
+		color: #000;
 	}
 }
 
@@ -122,4 +122,18 @@ a {
 	a:hover {
 		color: #6289ad;
 	}
+}
+
+#sidebar {
+	border-radius:15px;
+	background-color:#FFF8;
+	padding:20px;
+}
+
+#subscribe-wrapper {
+
+}
+#trending-article-img {
+	width:100%;
+	height:auto;
 }

@@ -17,10 +17,6 @@
 
             <!-- Right Side Of Navbar -->
             <ul class="navbar-nav navbar-right">
-                <!-- Search Box -->
-                <form class="form-inline my-2 my-lg-0 search" role="search" method="get" action="{{ url('search') }}">
-                  <input class="form-control mr-sm-2" type="search" name="q" placeholder="{{ lang('Search') }}" required>
-                </form>
 
                 <!-- Authentication Links -->
                 @if (Auth::guest())

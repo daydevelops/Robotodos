@@ -3,7 +3,6 @@
 @section('title', $article->title)
 @section('header')
 	@component('particals.jumbotron')
-		<br><hr>
 		<h4>{{ $article->title }}</h4>
 
 		<h6>{{ $article->subtitle }}</h6>
@@ -18,7 +17,6 @@
 			@endif
 			<i class="fas fa-clock"></i>{{ $article->published_at->diffForHumans() }}
 		</div>
-		<hr><br>
 	@endcomponent
 @endsection
 @section('content')
@@ -62,6 +60,14 @@
                  can-comment></comment>
     @endif
 
+@endsection
+
+@section('sidebar')
+	<?php $author = $article->user; ?>
+	@include('particals.author-bio')
+	@include('particals.searchbar')
+	@include('particals.subscribe')
+	@include('particals.trending-article')
 @endsection
 
 @section('scripts')

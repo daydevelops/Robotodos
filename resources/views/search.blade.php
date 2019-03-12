@@ -1,12 +1,13 @@
 @extends('layouts.app')
 
+@section('header')
+	@component('particals.jumbotron')
+		<h2>Search: {{ request()->get('q') }}</h2>
+
+	@endcomponent
+@endsection
 @section('content')
-    @component('particals.jumbotron')
-        <h4>{{ request()->get('q') }}</h4>
 
-        <h6>what you want to search.</h6>
-    @endcomponent
-
-    @include('widgets.article')
+	@include('widgets.article')
 
 @endsection
