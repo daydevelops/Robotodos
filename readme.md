@@ -133,3 +133,5 @@ Support all ERC20 tokens. My Address:
 The project is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT).
 
 QQ Group: 272734386
+
+## CHANGES

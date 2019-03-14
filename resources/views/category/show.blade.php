@@ -1,15 +1,14 @@
 @extends('layouts.app')
-
-@section('content')
+@section('header')
     @component('particals.jumbotron')
-        <h3>{{ $category->name }}</h3>
-
-        <h6>{{ lang('Category Meta') }}</h6>
+        <h1 class='oleo'>{{ $category->name }}</h1>
     @endcomponent
+@endsection
+@section('content')
 
     <div class="container">
         <div class="row">
-            <div class="col-md-6 offset-md-3">
+            <div class="col-md-10 offset-md-1">
                 <ul class="list-group">
                     @forelse($articles as $article)
                         <li class="list-group-item">
@@ -24,3 +23,4 @@
         </div>
     </div>
 @endsection
+@include('particals.defaultSidebar')

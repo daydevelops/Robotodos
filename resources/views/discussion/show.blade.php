@@ -1,10 +1,9 @@
 @extends('layouts.app')
 
 @section('title', $discussion->title)
-
-@section('content')
+@section('header')
     @component('particals.jumbotron')
-        <h4>{{ $discussion->title }}</h4>
+        <h1 class='oleo'>{{ $discussion->title }}</h1>
 
         <span><i class="fas fa-user" style="margin-right: 10px"></i>{{ $discussion->user->name ?? 'null' }}</span><br/>
 
@@ -12,6 +11,8 @@
             <a href="{{ url("discussion/{$discussion->id}/edit") }}" class="edit-discuss btn btn-info btn-sm"><i class="fas fa-pencil-alt" style="padding: 0"></i> {{ lang('Edit Problem') }}</a>
         @endcan
     @endcomponent
+@endsection
+@section('content')
 
     <div class="discuss-show container">
         <div class="row">
@@ -53,6 +54,14 @@
                  null-text=""
                  can-comment></comment>
     @endif
+@endsection
+
+@section('sidebar')
+	<?php $author = $discussion->user; ?>
+	@include('particals.author-bio')
+	@include('particals.searchbar')
+	@include('particals.subscribe')
+	@include('particals.trending-article')
 @endsection
 
 @section('scripts')

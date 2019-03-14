@@ -39,7 +39,7 @@ return [
 
     // Article Page
     'article' => [
-        'title'       => 'TESTING',//'DayDevelops',
+        'title'       => 'Browse New Articles',//'DayDevelops',
         'description' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',//'The collected ramblings of a web developer as he stumbles through the dark.',
         'number'      => 15,
         'sort'        => 'desc',
@@ -48,6 +48,8 @@ return [
 
     // Discussion Page
     'discussion' => [
+		'title' => 'User Discussion Board',
+		'subtitle' => 'Have an opinion, idea, or concern?',
         'number' => 10,
         'sort'   => 'desc',
         'sortColumn' => 'created_at',

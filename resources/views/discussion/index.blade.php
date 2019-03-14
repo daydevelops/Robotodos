@@ -1,13 +1,14 @@
 @extends('layouts.app')
-
-@section('content')
+@section('header')
     @component('particals.jumbotron')
-        <h4>{{ lang('Discuss Problem') }}</h4>
+        <h1 class='oleo'>{{ config('blog.discussion.title') }}</h1>
 
-        <h6>{{ lang('Discuss Subtitle') }}</h6>
+        <h3>{{ config('blog.discussion.subtitle') }}</h3>
 
-        <a href="{{ url('discussion/create') }}" class="btn btn-info btn-sm"><i class="fas fa-pencil-alt"></i> {{ lang('Submit Problem') }}</a>
+        <a href="{{ url('discussion/create') }}" class="btn btn-info btn-lrg"><i class="fas fa-pencil-alt"></i> Discuss!</a>
     @endcomponent
+@endsection
+@section('content')
 
     <div class="discussion container mb-4">
         <div class="row">
@@ -46,3 +47,5 @@
     {{ $discussions->links('pagination.default') }}
 
 @endsection
+
+@include('particals.defaultSidebar')
