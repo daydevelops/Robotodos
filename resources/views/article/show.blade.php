@@ -3,6 +3,12 @@
 @section('title', $article->title)
 @section('header')
 	@component('particals.jumbotron')
+		@if($article->is_draft)
+			<div class='alert alert-danger'>
+				<h2>DRAFT<h2>
+			</div>
+		@endif
+
 		<h4>{{ $article->title }}</h4>
 
 		<h6>{{ $article->subtitle }}</h6>
