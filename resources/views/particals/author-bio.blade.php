@@ -1,24 +1,38 @@
 <div id="author-bio-wrap">
 	<div id="author-bio-head">
+		<div id='author-bio-image'>
+			<img src="{{$author->avatar}}" alt="{{$author->name}}'s image'">
+		</div>
 		<h4 class='oleo text-center'>
 			{{$author->name}}
 		</h4>
 	</div>
-	<div id='author-bio-image'>
-	</div>
 	<div id="author-bio">
-		<p><small>
-			That's the way I look when I get home late; black and blue.
-			If you've been in Alaska less than a year you're a Cheechako.
-			Let's give him a friend too. Everybody needs a friend. Tree trunks grow however makes them happy.
-			La- da- da- da- dah. Just be happy. Decide where your cloud lives. Maybe he lives right in here.
-		</small></p>
+		<p><small>{{$author->description}}</small></p>
 	</div>
 	<div id="author-bio-foot">
-		<ul>
-			@if ($author->github_url)
-				<li><a href="{{$author->github_url}}">github</a></li>
+		<div id="author-links" class='text-center'>
+			@if($author->github_url)
+				<span class="mx-2">
+					<a href="{{$author->github_url}}" target="_blank">
+						<i class="fab fa-github"></i>
+					</a>
+				</span>
 			@endif
-		</ul>
+			@if($author->twitter_url)
+				<span class="mx-2">
+					<a href="{{$author->twitter_url}}" target="_blank">
+						<i class="fab fa-twitter"></i>
+					</a>
+				</span>
+			@endif
+			@if($author->website)
+				<span class="mx-2">
+					<a href="{{$author->website}}" target="_blank">
+						<i class="fas fa-globe"></i>
+					</a>
+				</span>
+			@endif
+		</div>
 	</div>
 </div>

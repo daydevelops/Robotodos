@@ -37,21 +37,15 @@
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label for="Weibo" class="col-md-3 col-form-label">{{ lang('Weibo Name') }}</label>
+                        <label for="Weibo" class="col-md-3 col-form-label">Twitter URL</label>
                         <div class="col-md-9">
-                            <input type="text" class="form-control" id="Weibo" name="weibo_name" value="{{ $user->weibo_name }}">
+                            <input type="text" class="form-control" id="twitter" name="twitter_url" value="{{ $user->twitter_url }}">
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label for="Weibo" class="col-md-3 col-form-label">{{ lang('Weibo Home') }}</label>
+                        <label for="GitHub" class="col-md-3 col-form-label">GitHub URL</label>
                         <div class="col-md-9">
-                            <input type="text" class="form-control" id="Weibo" name="weibo_link" value="{{ $user->weibo_link }}">
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <label for="GitHub" class="col-md-3 col-form-label">GitHub</label>
-                        <div class="col-md-9">
-                            <input type="text" class="form-control" id="GitHub" name="github" value="{{ $user->github_name }}">
+                            <input type="text" class="form-control" id="GitHub" name="github_url" value="{{ $user->github_url }}">
                         </div>
                     </div>
                     <div class="form-group row">

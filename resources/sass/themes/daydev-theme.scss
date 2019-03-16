@@ -129,12 +129,23 @@ a {
 	width:100%;
 	height:auto;
 }
+.comment-body {
+	background-color:#FFF8;
+}
 #sidebar {
 	border-radius:15px;
 	background-color:#FFF8;
-	padding:20px;
+	padding:0px 20px;
 }
-
+#author-bio-image > img {
+	max-height:150px;
+	max-width:150px;
+	border-radius:50%;
+	margin:auto;
+	display:block;
+	// margin-top:20px;
+	// border:1px solid red;
+}
 #trending-article-img {
 	width:100%;
 	height:auto;

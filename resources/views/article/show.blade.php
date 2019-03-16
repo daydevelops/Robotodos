@@ -71,23 +71,12 @@
 		can-comment
 		@endcan
 		></comment>
-	{{-- @if(Auth::guest())
-		<comment title="Comments"
-		commentable-type="articles"
-		commentable-id="{{ $article->id }}"></comment>
-	@else
-		<comment title="Comments"
-		username="{{ Auth::user()->name }}"
-		user-avatar="{{ Auth::user()->avatar }}"
-		commentable-type="articles"
-		commentable-id="{{ $article->id }}"
-		can-comment></comment>
-	@endif --}}
 
 @endsection
 
 @section('sidebar')
 	<?php $author = $article->user; ?>
+	<br>
 	@include('particals.author-bio')
 	@include('particals.searchbar')
 	@include('particals.subscribe')

@@ -23,11 +23,8 @@ class CreateUsersTable extends Migration
             $table->tinyInteger('status')->default(false);
             $table->boolean('is_admin')->default(false);
             $table->string('password');
-            $table->string('github_id')->nullable();
-            $table->string('github_name')->nullable();
             $table->string('github_url')->nullable();
-            $table->string('weibo_name')->nullable();
-            $table->string('weibo_link')->nullable();
+            $table->string('twitter_url')->nullable();
             $table->string('website')->nullable();
             $table->string('description')->nullable();
             $table->enum('email_notify_enabled', ['yes',  'no'])->default('yes')->index();
