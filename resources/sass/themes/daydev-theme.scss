@@ -109,7 +109,9 @@ a {
 		color: #000;
 	}
 }
-
+.header a {
+	color:#00F;
+}
 .footer {
 	background-color: $daydev-blue;
 	color: #fff;
@@ -123,16 +125,16 @@ a {
 		color: #6289ad;
 	}
 }
-
+#article-img {
+	width:100%;
+	height:auto;
+}
 #sidebar {
 	border-radius:15px;
 	background-color:#FFF8;
 	padding:20px;
 }
 
-#subscribe-wrapper {
-
-}
 #trending-article-img {
 	width:100%;
 	height:auto;
