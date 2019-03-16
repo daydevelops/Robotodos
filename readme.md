@@ -134,4 +134,7 @@ The project is open-sourced software licensed under the [MIT license](http://ope
 
 QQ Group: 272734386
 
-## CHANGES
+## Issues
+
+admin creates a draft post -> goes to that post -> tries to comment -> gets error
+change image hardcoded urls

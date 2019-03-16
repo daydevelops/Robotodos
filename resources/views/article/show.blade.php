@@ -25,11 +25,13 @@
 
 
 	<div class="article container">
-		<div class="row">
-			<div class="col-12 article-img-wrap">
-				<img src="{{$article->page_image}}" alt="Cover Image" id="article-img">
+		@if($article->page_image)
+			<div class="row">
+				<div class="col-12 article-img-wrap">
+					<img src="{{$article->page_image}}" alt="Cover Image" id="article-img">
+				</div>
 			</div>
-		</div>
+		@endif
 
 		<div class="row">
 			<div class="col-md-10 offset-md-1">
@@ -54,7 +56,16 @@
 			</div>
 		</div>
 	</div>
-	@if(Auth::guest())
+		<comment title="Comments"
+		commentable-type="articles"
+		commentable-id="{{ $article->id }}"
+		@can('comment',$article)
+		username="{{ Auth::user()->name }}"
+		user-avatar="{{ Auth::user()->avatar }}"
+		can-comment
+		@endcan
+		></comment>
+	{{-- @if(Auth::guest())
 		<comment title="Comments"
 		commentable-type="articles"
 		commentable-id="{{ $article->id }}"></comment>
@@ -65,7 +76,7 @@
 		commentable-type="articles"
 		commentable-id="{{ $article->id }}"
 		can-comment></comment>
-	@endif
+	@endif --}}
 
 @endsection
 
