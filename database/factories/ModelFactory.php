@@ -48,9 +48,9 @@ $factory->define(App\Article::class, function (Faker\Generator $faker) {
         'last_user_id' => $user_ids,
         'slug'     => str_slug($title),
         'title'    => $title,
-        'subtitle' => strtolower($title),
-        'content'  => $faker->paragraph,
-        'page_image'       => $faker->imageUrl(),
+        'subtitle' => strtolower($faker->sentence(mt_rand(3,10))),
+        'content'  => $faker->paragraph.$faker->paragraph.$faker->paragraph.$faker->paragraph.$faker->paragraph,
+        'page_image'       => "",
         'meta_description' => $faker->sentence,
         'is_draft'         => false,
         'published_at'     => $faker->dateTimeBetween($startDate = '-2 months', $endDate = 'now')

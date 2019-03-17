@@ -30,17 +30,30 @@
                         @endif
                     </div>
                 @endif
-                <div class="footer">
-                    @if($user->github_name)
-                    <a class="btn btn-sm btn-primary" target="_blank" href="https://github.com/{{ $user->github_name }}" data-toggle="tooltip" data-placement="top" title="{{ $user->name }}'s Github">
-                        <i class="fab fa-github"></i>
-                    </a>
-                    @endif
-                    @if($user->website)
-                    <a class="btn btn-sm btn-primary" target="_blank" href="{{ $user->website }}" data-toggle="tooltip" data-placement="top" title="{{ $user->name }}'s Website">
-                        <i class="fas fa-globe"></i>
-                    </a>
-                    @endif
+                <div class="text-left">
+					<div id="author-links" class='text-left'>
+						@if($user->github_url)
+							<span class="mx-2">
+								<a href="{{$user->github_url}}" target="_blank">
+									<i class="fab fa-github"></i>
+								</a>
+							</span>
+						@endif
+						@if($user->twitter_url)
+							<span class="mx-2">
+								<a href="{{$user->twitter_url}}" target="_blank">
+									<i class="fab fa-twitter"></i>
+								</a>
+							</span>
+						@endif
+						@if($user->website)
+							<span class="mx-2">
+								<a href="{{$user->website}}" target="_blank">
+									<i class="fas fa-globe"></i>
+								</a>
+							</span>
+						@endif
+					</div>
                 </div>
             </div>
             <div class="col-sm-5 user-follow">

@@ -81,6 +81,7 @@
 	@include('particals.searchbar')
 	@include('particals.subscribe')
 	@include('particals.trending-article')
+	<br>
 @endsection
 
 @section('scripts')

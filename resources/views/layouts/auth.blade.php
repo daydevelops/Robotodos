@@ -39,13 +39,8 @@
 				</div>
 			</div>
 			<div class="row">
-				<div class="col-lg-9">
+				<div class="col-12">
 					@yield('content')
-				</div>
-				<div class="col-lg-3">
-					<div id="sidebar">
-						@yield('sidebar')
-					</div> <!-- sidebar -->
 				</div>
 			</div>
 		</div>
@@ -54,7 +49,7 @@
 	</div>
 
 	<!-- Scripts -->
-	<script src="{{ mix('js/home.js') }}"></script>
+	{{-- <script src="{{ mix('js/home.js') }}"></script> --}}
 
 	@yield('scripts')
 

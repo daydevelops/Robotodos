@@ -23,7 +23,10 @@ a {
 .navbar {
 	background-color: $daydev-blue;
 }
-
+.navbar-brand {
+	font-size:30px;
+	padding:0px;
+}
 .navbar-dark .navbar-nav .nav-link {
 	color: #fff;
 
@@ -36,10 +39,12 @@ a {
 		background-color: transparent;
 	}
 }
-
+.navbar-nav>li>.dropdown-toggle {
+	padding:0px;
+}
 .navbar-nav>li>.dropdown-menu {
 	border: none;
-
+	width:210px;
 	li a {
 		color: #6289ad;
 	}
@@ -149,4 +154,7 @@ a {
 #trending-article-img {
 	width:100%;
 	height:auto;
+}
+.user-follow a, .user-follow a.text {
+	color:black;
 }
