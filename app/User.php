@@ -2,6 +2,7 @@
 
 namespace App;
 
+use App\Subscriber;
 use App\Notifications\GotVote;
 use Jcc\LaravelVote\Vote;
 use App\Traits\FollowTrait;
@@ -129,4 +130,20 @@ class User extends Authenticatable
 
         return true;
     }
+
+	public function subscription() {
+		return $this->hasOne(Subscriber::class);
+	}
+
+	public function subscribe() {
+		if ($this->subscription()->exists()) return;
+        $this->subscription()->create([
+			'email'=>$this->email,
+			'user_id'=>$this->id
+		]);
+	}
+
+	public function unsubscribe() {
+		$this->subscription()->delete();
+	}
 }

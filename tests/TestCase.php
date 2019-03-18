@@ -44,4 +44,15 @@ abstract class TestCase extends BaseTestCase
 
         return $this;
     }
+
+	protected function signIn($user=null) {
+		$user = $user ?: factory('App\User')->create();
+		$this->be($user);
+		return $this;
+	}
+
+	protected function signout() {
+		Auth::logout();
+	}
+
 }

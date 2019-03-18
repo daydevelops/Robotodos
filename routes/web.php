@@ -74,3 +74,4 @@ Route::get('{slug}', 'ArticleController@show');
 
 // Subscription
 Route::post('subscribe','SubscriberController@store');
+Route::post('unsubscribe','SubscriberController@destroy');
