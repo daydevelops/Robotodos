@@ -39,8 +39,8 @@ $factory->define(App\Category::class, function (Faker\Generator $faker) {
 });
 
 $factory->define(App\Article::class, function (Faker\Generator $faker) {
-    $user_ids = \App\User::pluck('id')->random();
-    $category_ids = \App\Category::pluck('id')->random();
+    $user_ids = factory('App\User')->create()->id;
+    $category_ids = factory('App\Category')->create()->id;
     $title = $faker->sentence(mt_rand(3,10));
     return [
         'user_id'      => $user_ids,
