@@ -13,12 +13,13 @@ class SubscriberController extends Controller
 		} else if (!Subscriber::where(['email'=>request('email')])->exists()) {
 			Subscriber::create(['email'=>request('email')]);
 		}
+		return back();
 	}
 
 	public function destroy() {
 		if (auth()->check()) {
 			auth()->user()->unsubscribe();
-		} else if (!Subscriber::where(['email'=>request('email')])->exists()) {
+		} else {
 			Subscriber::where(['email'=>request('email')])->delete();
 		}
 	}

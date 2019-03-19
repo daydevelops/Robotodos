@@ -12,7 +12,6 @@ class SubscriptionTest extends TestCase
 
 	protected $email = 'test@test.com';
 
-
 	protected function subscribe() {
 		$res = $this->json('POST','/subscribe',[
 			'email'=>$this->email,
@@ -69,8 +68,8 @@ class SubscriptionTest extends TestCase
 	public function a_guest_can_unsubscribe() {
 		$this->subscribe();
 		$this->assertDatabaseHas('subscribers',['email'=>$this->email]);
-		// $res = $this->json('POST','/unsubscribe',['email'=>$this->email]);
-		// $this->assertDatabaseMissing('subscribers',['email'=>$this->email]);
+		$res = $this->json('POST','unsubscribe',['email'=>$this->email]);
+		$this->assertDatabaseMissing('subscribers',['email'=>$this->email]);
 	}
 
 }
