@@ -180,4 +180,28 @@ class Article extends Model
         }
         return $query;
     }
+
+	public function isPartOfseries() {
+		return !! $this->series_id;
+	}
+	public function nextArticle() {
+		if ($this->isPartOfSeries()) {
+			return Article::where([
+				'series_id'=>$this->series_id,
+				'number_in_series'=>$this->number_in_series + 1
+			])->first();
+		} else {
+			return null;
+		}
+	}
+	public function previousArticle() {
+		if ($this->isPartOfSeries()) {
+			return Article::where([
+				'series_id'=>$this->series_id,
+				'number_in_series'=>$this->number_in_series - 1
+			])->first();
+		} else {
+			return null;
+		}
+	}
 }

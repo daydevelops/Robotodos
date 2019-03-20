@@ -18,8 +18,8 @@ class ArticleController extends Controller
         $articles = Article::checkAuth()
             ->orderBy(config('blog.article.sortColumn'), config('blog.article.sort'))
             ->paginate(config('blog.article.number'));
-
-        return view('article.index', compact('articles'));
+		$trending_article = Article::orderBy('view_count','DESC')->first();
+        return view('article.index', compact('articles','trending_article'));
     }
 
     /**
@@ -45,6 +45,12 @@ class ArticleController extends Controller
 
         Visitor::log($article->id, $ip);
 
-        return view('article.show', compact('article'));
+		if ($article->nextArticle()) {
+			$trending_article = $article->nextArticle();
+		} else {
+			$trending_article = Article::orderBy('view_count','DESC')->first();
+		}
+		
+        return view('article.show', compact('article','trending_article'));
     }
 }

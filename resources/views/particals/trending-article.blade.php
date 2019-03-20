@@ -1,8 +1,7 @@
 <hr>
-<?php $trending_article = App\Article::first(); ?>
 <div id='trending-article'>
 	<h3 class="oleo text-center">
-		Popular Article
+		{{$trending_article->isPartOfSeries() ? "Next " : "Popular "}} Article
 	</h3>
 	@if($trending_article->page_image)
 		<div>

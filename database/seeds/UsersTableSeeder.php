@@ -25,13 +25,16 @@ class UsersTableSeeder extends Seeder
                 'updated_at'  => Carbon::now()
             ]
         ];
-
-        DB::table('users')->insert($users);
-		factory(User::class,1)->create([
-			'name' => 'adam',
-			'email' => 'adamday1618@gmail.com',
-			'password' => Hash::make('adam'),
-		]);
+		if (User::where(['email'=>'admin@admin.com'])->count()==0) {
+       		DB::table('users')->insert($users);
+		}
+		if (User::where(['email'=>'adamday1618@gmail.com'])->count()==0) {
+			factory(User::class,1)->create([
+				'name' => 'adam',
+				'email' => 'adamday1618@gmail.com',
+				'password' => Hash::make('adam'),
+			]);
+		}
         factory(User::class, 10)->create();
     }
 }

@@ -18,6 +18,8 @@ class CreateArticlesTable extends Migration
             $table->unsignedBigInteger('category_id');
             $table->unsignedBigInteger('user_id');
             $table->unsignedBigInteger('last_user_id');
+            $table->unsignedBigInteger('series_id')->nullable();
+            $table->unsignedBigInteger('number_in_series')->nullable();
             $table->string('slug')->unique();
             $table->string('title');
             $table->string('subtitle');
