@@ -72,4 +72,24 @@ class SubscriptionTest extends TestCase
 		$this->assertDatabaseMissing('subscribers',['email'=>$this->email]);
 	}
 
+	/** @test */
+	public function an_admin_can_send_a_test_notification_for_a_post() {
+		$post = factory('App\Article')->create();
+		$this->signIn();
+		$response = $this->post('/api/article/notifyTest/'.$post->id);
+		dd($response);
+		$this->assertDatabaseHas('notifications',[
+			'notifiable_id'=>auth()->id(),
+			'notifiable_type'=>'App\User',
+			'type'=>'App\Notifications\newArticlePublished',
+		]);
+	}
+	//
+	// /** @test */
+	// public function an_admin_can_send_notifications_for_a_post() {
+	// 	$post = factory('App\Article')->create();
+	// 	$this->signIn();
+	//
+	// }
+
 }

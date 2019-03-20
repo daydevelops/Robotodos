@@ -95,7 +95,7 @@ methods: {
 	},
 	notify() {
 		$('#notify-modal').modal('show');
-		this.$http.post('/subscribe/notify/'+this.notifying)
+		this.$http.post('/article/notify/'+this.notifying)
 		.then(
 			(response) => {
 				toastr.success('Subscribers have been notified!')
@@ -107,7 +107,7 @@ methods: {
 	},
 	notify_test() {
 		$('#notify-modal').modal('show');
-		this.$http.post('/subscribe/notifyTest/'+this.notifying)
+		this.$http.post('/article/notifyTest/'+this.notifying)
 		.then(
 			(response) => {
 				toastr.success('You have been notified!')

@@ -102,4 +102,10 @@ class ArticleController extends ApiController
 
         return $this->response->withNoContent();
     }
+
+	public function notifyTest(Request $request, Article $article) {
+		if (!auth()->user()->is_admin) {
+			return response()->json([],403);
+		}
+	}
 }
