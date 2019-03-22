@@ -9,7 +9,7 @@ return [
     'super_admin' => env('APP_SUPER_ADMIN') ?: 1,
 
     // Default Avatar
-    'default_avatar' => env('DEFAULT_AVATAR') ?: '/images/default.png',
+    'default_avatar' => env('DEFAULT_AVATAR') ?: '/images/default.jpg',
 
     // Default Icon
     'default_icon' => env('DEFAULT_ICON') ?: '/images/favicon.ico',

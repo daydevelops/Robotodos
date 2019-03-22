@@ -17,7 +17,7 @@ class CreateUsersTable extends Migration
             $table->bigIncrements('id');
             $table->string('name')->unique();
             $table->string('nickname')->nullable();
-            $table->text('avatar')->nullable();
+            $table->string('avatar')->default('/images/default.jpg');
             $table->string('email')->unique();
             $table->string('confirm_code', 64)->unique()->nullable();
             $table->tinyInteger('status')->default(false);
