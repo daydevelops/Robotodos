@@ -37,10 +37,20 @@ return [
         'open' => false//env('GOOGLE_OPEN') ?: false
     ],
 
+	'blog_information' => [
+		'title' => 'Robotodos',
+		'desc' => 'Hello friend, and welcome to Robotodos. My name is Adam and I spend a good portion of my time
+		studying web development and tinkering with the odd robotics project. Eventually I realized that a lot of
+		what I have learned along the way could help others on the same path.<br><br> So stick around for
+		a while if you enjoy reading about technical tutorials, soft skills learning, and web development lessons
+		I have learned the hard way, so you dont have to.<br><br> Please feel free to comment or post in the forum if you
+		have something to say.'
+	],
+
     // Article Page
     'article' => [
-        'title'       => 'Browse New Articles',//'DayDevelops',
-        'description' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',//'The collected ramblings of a web developer as he stumbles through the dark.',
+        'title'       => 'Robotodos',
+        'description' => 'The collected ramblings of a web developer stumbling through the dark.',
         'number'      => 15,
         'sort'        => 'desc',
         'sortColumn'  => 'published_at',
