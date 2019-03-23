@@ -1,3 +1,4 @@
+@if ($trending_article)
 <hr>
 <div id='trending-article'>
 	<h3 class="oleo text-center">
@@ -29,3 +30,4 @@
 		</div>
 	</div>
 </div>
+@endif

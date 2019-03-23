@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Discussion;
+use App\Article;
 use App\Http\Requests\DiscussionRequest;
 use App\Tag;
 
@@ -24,7 +25,8 @@ class DiscussionController extends Controller
             ->orderBy(config('blog.discussion.sortColumn'), config('blog.discussion.sort'))
             ->paginate(config('blog.discussion.number'));
 
-        return view('discussion.index', compact('discussions'));
+		$trending_article = Article::orderBy('view_count','DESC')->first();
+        return view('discussion.index', compact('discussions','trending_article'));
     }
 
     /**
@@ -76,7 +78,8 @@ class DiscussionController extends Controller
     {
         $discussion = Discussion::query()->checkAuth()->findOrFail($id);
 
-        return view('discussion.show', compact('discussion'));
+		$trending_article = Article::orderBy('view_count','DESC')->first();
+        return view('discussion.show', compact('discussion','trending_article'));
     }
 
     /**

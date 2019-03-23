@@ -60,7 +60,7 @@ $factory->define(App\Article::class, function (Faker\Generator $faker) {
 
 $factory->define(App\Tag::class, function (Faker\Generator $faker) {
     return [
-        'tag'              => $faker->word,
+        'tag'              => $faker->word." ".$faker->word,
         'title'            => $faker->sentence,
         'meta_description' => $faker->sentence,
     ];
