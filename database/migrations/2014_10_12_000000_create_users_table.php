@@ -26,7 +26,7 @@ class CreateUsersTable extends Migration
             $table->string('github_url')->nullable();
             $table->string('twitter_url')->nullable();
             $table->string('website')->nullable();
-            $table->string('description')->nullable();
+            $table->text('description')->nullable();
             $table->enum('email_notify_enabled', ['yes',  'no'])->default('yes')->index();
             $table->rememberToken();
             $table->timestamps();
