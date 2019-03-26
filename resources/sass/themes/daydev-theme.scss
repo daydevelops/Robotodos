@@ -131,8 +131,11 @@ a {
 	}
 }
 #article-img {
-	width:100%;
+	max-width:100%;
 	height:auto;
+	max-height:500px;
+	display:block;
+	margin:auto;
 }
 .comment-body {
 	background-color:#FFF8;
@@ -160,4 +163,9 @@ a {
 }
 .width-20-percent {
 	width:20%;
+}
+
+.media .media-left img.article-img {
+	max-width:100%;
+	max-height:100%;
 }

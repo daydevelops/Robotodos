@@ -107,7 +107,7 @@ export default {
     nullText: {
       type: String,
       default () {
-        return 'Nothing...'
+        return 'Be the first to comment!'
       }
     },
     nullClass: {

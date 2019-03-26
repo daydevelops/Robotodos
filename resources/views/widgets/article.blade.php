@@ -5,27 +5,22 @@
             <li class="media">
                 @if($article->page_image)
                 <a class="media-left mr-3" href="{{ url($article->slug) }}">
-                    <img alt="{{ $article->slug }}" src="{{ $article->page_image }}" data-holder-rendered="true">
+                    <img class='article-img' alt="{{ $article->slug }}" src="{{ $article->page_image }}" data-holder-rendered="true">
                 </a>
                 @endif
                 <div class="media-body">
-                    <h6 class="media-heading">
+                    <h3 class="media-heading">
                         <a href="{{ url($article->slug) }}">
                             {{ $article->title }}
                         </a>
-                    </h6>
+                    </h3>
                     <div class="meta">
-                        <span class="cinema">{{ $article->subtitle }}</span>
+                        <h5>{{ $article->subtitle }}</h5>
                     </div>
                     {{-- <div class="description">
                         {{ $article->meta_description }}
                     </div> --}}
                     <div class="extra">
-                        @foreach($article->tags as $tag)
-                        <a href="{{ url('tag', ['tag' => $tag->tag]) }}">
-                            <div class="label"><i class="fas fa-tag"></i>{{ $tag->tag }}</div>
-                        </a>
-                        @endforeach
 
                         <div class="info">
                             <i class="fas fa-user"></i>{{ $article->user->name ?? 'null' }}&nbsp;,&nbsp;
