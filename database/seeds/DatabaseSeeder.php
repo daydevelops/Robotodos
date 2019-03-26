@@ -19,6 +19,7 @@ class DatabaseSeeder extends Seeder
 					'password' => Hash::make(env('ADMIN_USER_PASS')),
 					'status' => true,
 					'is_admin' => true,
+					'avatar'=>'/images/admin.jpg',
 					'confirm_code' => str_random(64),
 					'created_at'  => Carbon::now(),
 					'updated_at'  => Carbon::now()
