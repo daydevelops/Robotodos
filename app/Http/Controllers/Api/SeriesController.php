@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Api;
 
 use \App\Series;
+use \App\Article;
 use Illuminate\Http\Request;
 
 class SeriesController extends ApiController
@@ -43,7 +44,6 @@ class SeriesController extends ApiController
 	*/
 	public function store(Request $request)
 	{
-		// dd(request()->all());
 		$validatedData = $request->validate([
 			'name' => 'required|max:140',
 		]);
@@ -79,9 +79,12 @@ class SeriesController extends ApiController
 	* @param  int  $id
 	* @return \Illuminate\Http\Response
 	*/
-	public function update(Request $request, $id)
+	public function update(Request $request, Series $series)
 	{
-		//
+		$validatedData = $request->validate([
+			'name' => 'required|max:140',
+		]);
+		$series->update($validatedData); 
 	}
 
 	/**
@@ -93,5 +96,9 @@ class SeriesController extends ApiController
 	public function destroy($id)
 	{
 		//
+	}
+
+	public function addArticle(Series $series, Article $article) {
+		$series->add($article);
 	}
 }

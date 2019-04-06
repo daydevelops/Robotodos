@@ -17,6 +17,8 @@ Route::group([
 	// Series
 	Route::get('series', 'SeriesController@index')->name('api.series.index')->middleware(['permission:list_series']);
 	Route::post('series/new', 'SeriesController@store')->name('api.series.new')->middleware(['permission:create_series']);
+	Route::patch('series/{series}/add/{article}', 'SeriesController@addArticle')->name('api.series.add')->middleware(['permission:update_series']);
+	Route::patch('series/{series}', 'SeriesController@update')->name('api.series.update')->middleware(['permission:update_series']);
 
     // Article
     Route::get('article', 'ArticleController@index')->name('api.article.index')->middleware(['permission:list_article']);

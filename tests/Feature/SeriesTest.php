@@ -33,18 +33,21 @@ class SeriesTest extends TestCase
 	}
 
 	/** @test */
-	public function an_admin_can_edit_a_series_details() {
+	public function an_admin_can_update_a_series_name() {
 		$series = factory('App\Series')->create(['name'=>'foobar']);
 		$this->json('patch','api/series/'.$series->id,['name'=>'lorem_ipsum']);
 		$this->assertDatabaseHas('series',['name'=>'lorem_ipsum']);
-
 	}
 
-	// /** @test */
-	// public function an_admin_can_add_an_article_to_a_series() {
-	//
-	// }
-	//
+	/** @test */
+	public function an_admin_can_add_an_article_to_a_series() {
+		$article = factory('App\Article')->create();
+		$series = factory('App\Series')->create();
+		// dd('api/series/'.$series->id.'/add/'.$article->id);
+		$this->json('patch','api/series/'.$series->id.'/add/'.$article->id);
+		$this->assertEquals($series->id,$article->fresh()->series_id);
+	}
+
 	// /** @test */
 	// public function an_admin_can_remove_an_article_from_a_series() {
 	//
