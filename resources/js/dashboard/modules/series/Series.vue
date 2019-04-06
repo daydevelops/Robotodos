@@ -37,8 +37,8 @@ export default {
 		],
 		itemActions: [
 			{ name: 'view-item', icon: 'fas fa-eye', class: 'btn btn-success' },
-			{ name: 'edit-item', permission: 'UPDATE_ARTICLE', icon: 'fas fa-pencil-alt', class: 'btn btn-info' },
-			{ name: 'delete-item', permission: 'DESTROY_ARTICLE', icon: 'fas fa-trash-alt', class: 'btn btn-danger' }
+			{ name: 'edit-item', permission: 'UPDATE_SERIES', icon: 'fas fa-pencil-alt', class: 'btn btn-info' },
+			{ name: 'delete-item', permission: 'DESTROY_SERIES', icon: 'fas fa-trash-alt', class: 'btn btn-danger' }
 		]
 	}
 
