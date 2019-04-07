@@ -13,18 +13,24 @@ class Series extends Model
 	}
 
 	public function add($article) {
-		$article->update(['series_id'=>$this->id]);
+		$article->update([
+			'series_id'=>$this->id,
+			'number_in_series'=>$this->articles->count() + 1
+		]);
 	}
 
+	public function remove($article_to_delete) {
 
-    /**
-     * checkAuth
-     *
-     * @author Huiwang <905130909@qq.com>
-     *
-     * @param $query
-     * @return mixed
-     */
+		$articles_to_update = $this->articles()
+		->where('number_in_series','>',$article_to_delete->number_in_series)
+		->decrement('number_in_series',1);
+
+		$article_to_delete->update([
+			'series_id'=>null,
+			'number_in_series'=>null
+		]);
+	}
+
     public function scopeCheckAuth($query)
     {
         if (auth()->check() && auth()->user()->is_admin) {
@@ -32,4 +38,5 @@ class Series extends Model
         }
         return $query;
     }
+
 }

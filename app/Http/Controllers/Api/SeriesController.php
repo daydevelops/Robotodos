@@ -101,4 +101,7 @@ class SeriesController extends ApiController
 	public function addArticle(Series $series, Article $article) {
 		$series->add($article);
 	}
+	public function destroyArticle(Series $series, Article $article) {
+		$series->remove($article); 
+	}
 }
