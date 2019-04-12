@@ -39,59 +39,70 @@ class SeriesTest extends TestCase
 		$this->assertDatabaseHas('series',['name'=>'lorem_ipsum']);
 	}
 
+
 	/** @test */
-	public function an_admin_can_add_an_article_to_the_end_of_a_series() {
-		$article = factory('App\Article')->create();
-		$article2 = factory('App\Article')->create();
+	public function an_admin_can_change_the_order_of_articles_in_a_series() {
 		$series = factory('App\Series')->create();
-		// dd('api/series/'.$series->id.'/add/'.$article->id);
-		$this->json('patch','api/series/'.$series->id.'/add/'.$article->id);
-		$this->json('patch','api/series/'.$series->id.'/add/'.$article2->id);
-		$this->assertEquals($series->id,$article->fresh()->series_id);
-		$this->assertEquals(2,$article2->fresh()->number_in_series);
+		$art1 = factory('App\Article')->create([
+			'series_id'=>$series->id,
+			'number_in_series'=>1
+		]);
+		$art2 = factory('App\Article')->create([
+			'series_id'=>$series->id,
+			'number_in_series'=>2
+		]);
+		$art3 = factory('App\Article')->create([
+			'series_id'=>$series->id,
+			'number_in_series'=>3
+		]);
+		$this->json('patch','api/series/order/'.$series->id,['articles'=>[3,1,2]]);
+		$this->assertEquals(1,$art3->refresh()->number_in_series);
+		$this->assertEquals(2,$art1->refresh()->number_in_series);
+		$this->assertEquals(3,$art2->refresh()->number_in_series);
 	}
 
 	/** @test */
-	public function an_article_can_only_belong_to_one_series() {
-		$article = factory('App\Article')->create();
-		$series = factory('App\Series')->create();
-		$series2 = factory('App\Series')->create();
-		// dd('api/series/'.$series->id.'/add/'.$article->id);
-		$this->json('patch','api/series/'.$series->id.'/add/'.$article->id);
-		$this->assertEquals($series->id,$article->fresh()->series_id);
-		$this->json('patch','api/series/'.$series2->id.'/add/'.$article->id);
-		$this->assertEquals($series2->id,$article->fresh()->series_id);
-	}
+	public function articles_can_be_deleted_by_updating_the_order() {
 
-	/** @test */
-	public function an_admin_can_remove_an_article_from_a_series() {
-		$article = factory('App\Article')->create();
-		$series = factory('App\Series')->create();
-		$series->add($article);
-		$this->assertEquals($series->id,$article->fresh()->series_id);
-		$this->json('delete','api/series/'.$series->id.'/delete/'.$article->id);
-		$this->assertEquals(null,$article->fresh()->series_id);
-	}
-
-	/** @test */
-	public function removing_an_art_updates_the_position_of_following_arts() {
-		$articles = factory('App\Article',5)->create();
-		$series = factory('App\Series')->create();
-		foreach($articles as $a) {
-			$a->update([
+			$series = factory('App\Series')->create();
+			$art1 = factory('App\Article')->create([
 				'series_id'=>$series->id,
-				'number_in_series'=>$a->id
+				'number_in_series'=>1
 			]);
-		}
-		$this->json('delete','api/series/'.$series->id.'/delete/'.$articles[2]->id);
-		$this->assertEquals(['1','2','3','4'],$series->articles->pluck('number_in_series')->toArray());
+			$art2 = factory('App\Article')->create([
+				'series_id'=>$series->id,
+				'number_in_series'=>2
+			]);
+			$art3 = factory('App\Article')->create([
+				'series_id'=>$series->id,
+				'number_in_series'=>3
+			]);
+			$this->json('patch','api/series/order/'.$series->id,['articles'=>[3,1]]);
+			$this->assertEquals(1,$art3->refresh()->number_in_series);
+			$this->assertEquals(2,$art1->refresh()->number_in_series);
+			$this->assertEquals(null,$art2->refresh()->number_in_series);
 	}
 
-	// /** @test */
-	// public function an_admin_can_change_the_order_of_articles_in_a_series() {
-	//
-	// }
-	//
+	/** @test */
+	public function articles_can_be_added_by_updating_the_order() {
+		$series = factory('App\Series')->create();
+		$art1 = factory('App\Article')->create([
+			'series_id'=>$series->id,
+			'number_in_series'=>1
+		]);
+		$art2 = factory('App\Article')->create([
+			'series_id'=>$series->id,
+			'number_in_series'=>2
+		]);
+		$art3 = factory('App\Article')->create();
+		
+		$this->json('patch','api/series/order/'.$series->id,['articles'=>[3,1,2]]);
+		$this->assertEquals(1,$art3->refresh()->number_in_series);
+		$this->assertEquals(2,$art1->refresh()->number_in_series);
+		$this->assertEquals(3,$art2->refresh()->number_in_series);
+
+	}
+
 	// /** @test */
 	// public function users_can_view_a_list_of_series() {
 	//

@@ -10,8 +10,8 @@ export default [{
     name: 'dashboard.series.create',
     component: () => import('./Create')
   }, {
-    path: ':id/edit',
-    name: 'dashboard.article.edit',
+    path: ':edit/series/',
+    name: 'dashboard.series.edit',
     component: () => import('./Edit')
   }]
 }]

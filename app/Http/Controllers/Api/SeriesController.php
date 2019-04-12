@@ -67,9 +67,13 @@ class SeriesController extends ApiController
 	* @param  int  $id
 	* @return \Illuminate\Http\Response
 	*/
-	public function edit($id)
+	public function edit(Series $series)
 	{
-		//
+
+		return [
+			"articles_available"=>Article::where(['series_id'=>null])->get(),
+			"series"=>$series->load('articles')
+		];
 	}
 
 	/**
@@ -84,7 +88,21 @@ class SeriesController extends ApiController
 		$validatedData = $request->validate([
 			'name' => 'required|max:140',
 		]);
-		$series->update($validatedData); 
+		$series->update($validatedData);
+	}
+
+	public function updateOrder(Request $request, Series $series) {
+		// reset all articles in this series
+		$series->articles()->update([
+			'series_id'=>null,
+			'number_in_series'=>null
+		]);
+		foreach (request()->articles as $key => $a) {
+			Article::find($a)->update([
+				'series_id'=>$series->id,
+				'number_in_series'=>$key+1
+			]);
+		}
 	}
 
 	/**
@@ -102,6 +120,6 @@ class SeriesController extends ApiController
 		$series->add($article);
 	}
 	public function destroyArticle(Series $series, Article $article) {
-		$series->remove($article); 
+		$series->remove($article);
 	}
 }
