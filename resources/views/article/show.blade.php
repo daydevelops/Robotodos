@@ -9,13 +9,13 @@
 			</div>
 		@endif
 
-		<h4>{{ $article->title }}</h4>
+		<h2>{{ $article->title }}</h2>
 
-		<h6>{{ $article->subtitle }}</h6>
+		<h4>{{ $article->subtitle }}</h4>
 
 		<div class="header">
 			<i class="fas fa-user"></i>{{ $article->user->name ?? 'null' }}，
-			<i class="fas fa-clock"></i>{{ $article->published_at->diffForHumans() }}, 
+			<i class="fas fa-clock"></i>{{ $article->published_at->diffForHumans() }},
 			<i class="fas fa-eye"></i>{{ $article->view_count }}
 		</div>
 
