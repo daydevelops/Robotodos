@@ -95,12 +95,24 @@ class SeriesTest extends TestCase
 			'number_in_series'=>2
 		]);
 		$art3 = factory('App\Article')->create();
-		
+
 		$this->json('patch','api/series/order/'.$series->id,['articles'=>[3,1,2]]);
 		$this->assertEquals(1,$art3->refresh()->number_in_series);
 		$this->assertEquals(2,$art1->refresh()->number_in_series);
 		$this->assertEquals(3,$art2->refresh()->number_in_series);
 
+	}
+
+	/** @test */
+	public function an_admin_can_delete_a_series() {
+		$series = factory('App\Series')->create();
+		$art1 = factory('App\Article')->create([
+			'series_id'=>$series->id,
+			'number_in_series'=>1
+		]);
+		$this->json('delete','api/series/'.$series->id);
+		$this->assertDatabaseMissing('series',['name'=>$series->name]);
+		$this->assertEquals(null,$art1->fresh()->series_id);
 	}
 
 	// /** @test */
@@ -117,50 +129,4 @@ class SeriesTest extends TestCase
 	// public function next_article_in_the_series_is_recommended() {
 	//
 	// }
-
-	// /** @test */
-	// public function {
-	//
-	// }
-	//
-	// /** @test */
-	// public function {
-	//
-	// }
-	//
-	// /** @test */
-	// public function {
-	//
-	// }
-	//
-	// /** @test */
-	// public function {
-	//
-	// }
-	//
-	// /** @test */
-	// public function {
-	//
-	// }
-	//
-	// /** @test */
-	// public function {
-	//
-	// }
-	//
-	// /** @test */
-	// public function {
-	//
-	// }
-	//
-	// /** @test */
-	// public function {
-	//
-	// }
-	//
-	// /** @test */
-	// public function {
-	//
-	// }
-
 }

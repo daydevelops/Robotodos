@@ -3,13 +3,14 @@
 		<div class='text-center'>
 			<div class=" form-inline d-inline">
 				<label class="sr-only" for="series-name">Name</label>
-				<input type="text" class="form-control mb-2 mr-sm-2" id="series-name">
+				<input type="text" class="form-control mb-2" id="series-name">
 
 				<button class="btn btn-primary mb-2" @click="updateName">Update Name</button>
 			</div>
 		</div>
 		<br><hr><br>
 		<div>
+			<h3 class='text-center'>Articles:</h3>
 			<div id='articles-list'>
 				<draggable v-model="articles" @start="drag=true" @end="drag=false">
 					<div class='row article-wrap' v-for="art in articles" :key="art.id">
@@ -127,6 +128,9 @@ export default {
 }
 #edit-wrap {
 	margin:20px 0px;
+}
+#series-name {
+	width:75%;
 }
 
 

@@ -111,9 +111,15 @@ class SeriesController extends ApiController
 	* @param  int  $id
 	* @return \Illuminate\Http\Response
 	*/
-	public function destroy($id)
+	public function destroy(Series $series)
 	{
-		//
+		// reset all articles in this series
+		$series->articles()->update([
+			'series_id'=>null,
+			'number_in_series'=>null
+		]);
+		$series->delete();
+
 	}
 
 	public function addArticle(Series $series, Article $article) {

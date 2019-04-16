@@ -20,6 +20,7 @@ Route::group([
 	Route::get('series/edit/{series}', 'SeriesController@edit')->name('api.series.edit')->middleware(['permission:list_series']);
 	Route::patch('series/order/{series}', 'SeriesController@updateOrder')->middleware(['permission:update_series']);
 	Route::patch('series/{series}', 'SeriesController@update')->name('api.series.update')->middleware(['permission:update_series']);
+	Route::delete('series/{series}', 'SeriesController@destroy')->name('api.series.update')->middleware(['permission:update_series']);
 
     // Article
     Route::get('article', 'ArticleController@index')->name('api.article.index')->middleware(['permission:list_article']);

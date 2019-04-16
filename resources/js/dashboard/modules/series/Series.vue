@@ -1,7 +1,7 @@
 <template>
 	<div>
 		<div class="row">
-			<vue-table :title="$t('page.series')" :fields="fields" api-url="series" :item-actions="itemActions" @table-action="tableActions" show-paginate>
+			<vue-table :title="'Articles Series'" :fields="fields" api-url="series" :item-actions="itemActions" @table-action="tableActions" show-paginate>
 				<template slot="buttons">
 					<router-link :to="{ name: 'dashboard.series.create' }" class="btn btn-sm btn-success" v-if="checkPermission('CREATE_SERIES')">{{ $t('page.create') }}</router-link>
 				</template>
@@ -48,9 +48,9 @@ methods: {
 		if (action == 'edit-item') {
 			this.$router.push({ name: 'dashboard.series.edit', params: { id: data.id } })
 		} else if (action == 'delete-item') {
-			this.$http.delete('article/' + data.id)
+			this.$http.delete('series/' + data.id)
 			.then((response) => {
-				toastr.success('You delete the article success!')
+				toastr.success('You delete the series!')
 
 				this.$emit('reload')
 			}).catch(({ response }) => {
