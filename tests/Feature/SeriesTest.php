@@ -133,8 +133,19 @@ class SeriesTest extends TestCase
 		$this->get('series/'.$series->id)->assertSee($art->title);
 	}
 
-	// /** @test */
-	// public function next_article_in_the_series_is_recommended() {
-	//
-	// }
+	/** @test */
+	public function next_article_in_the_series_is_recommended() {
+
+		$series = factory('App\Series')->create();
+		$art1 = factory('App\Article')->create([
+			'series_id'=>$series->id,
+			'number_in_series'=>1
+		]);
+		$art2 = factory('App\Article')->create([
+			'series_id'=>$series->id,
+			'number_in_series'=>2
+		]);
+		$this->get($art1->slug)->assertSee($art2->title);
+
+	}
 }
