@@ -115,16 +115,24 @@ class SeriesTest extends TestCase
 		$this->assertEquals(null,$art1->fresh()->series_id);
 	}
 
-	// /** @test */
-	// public function users_can_view_a_list_of_series() {
-	//
-	// }
-	//
-	// /** @test */
-	// public function users_can_view_all_articles_in_a_series() {
-	//
-	// }
-	//
+	/** @test */
+	public function users_can_view_a_list_of_series() {
+		$series = factory('App\Series')->create();
+		$this->get('series')->assertSee($series->name);
+	}
+
+	/** @test */
+	public function users_can_view_all_articles_in_a_series() {
+
+		$series = factory('App\Series')->create();
+		$art = factory('App\Article')->create([
+			'series_id'=>$series->id,
+			'number_in_series'=>1
+		]);
+
+		$this->get('series/'.$series->id)->assertSee($art->title);
+	}
+
 	// /** @test */
 	// public function next_article_in_the_series_is_recommended() {
 	//
