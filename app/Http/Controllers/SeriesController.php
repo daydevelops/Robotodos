@@ -32,7 +32,7 @@ class SeriesController extends Controller
     public function show(Request $request, Series $series)
     {
         $articles = $series->articles()
-            ->orderBy(config('blog.article.sortColumn'), config('blog.article.sort'))
+            ->orderBy('number_in_series', config('blog.article.sort'))
             ->paginate(config('blog.article.number'));
 		$trending_article = Article::orderBy('view_count','DESC')->first();
         return view('series.show', compact('series','articles','trending_article'));
