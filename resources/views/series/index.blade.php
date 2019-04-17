@@ -19,7 +19,7 @@
 	                            {{ $series->name }}
 	                        </a>
 		                    <div class="meta">
-		                        {{-- <h5>{{ $series->description }}</h5> --}}
+		                        <h5>{{ $series->description }}</h5>
 		                    </div>
 	                    </h2>
 	                    <div class="extra">
