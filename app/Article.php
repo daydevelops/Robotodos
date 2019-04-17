@@ -37,6 +37,8 @@ class Article extends Model
         'is_draft',
         'is_original',
         'published_at',
+		'series_id',
+		'number_in_series'
     ];
 
     protected $casts = [

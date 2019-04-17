@@ -18,6 +18,10 @@ Route::get('search', 'HomeController@search');
 // Discussion
 Route::resource('discussion', 'DiscussionController', ['except' => 'destroy']);
 
+// Series
+Route::get('series',"SeriesController@index")->name('series');
+Route::get('series/{series}',"SeriesController@show");
+
 // User
 Route::group(['prefix' => 'user'], function () {
 	Route::get('/', 'UserController@index');

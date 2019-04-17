@@ -1,3 +1,4 @@
+import { routes as series } from './modules/series/index'
 import { routes as article } from './modules/article/index'
 import { routes as category } from './modules/category/index'
 import { routes as comment } from './modules/comment/index'
@@ -18,6 +19,7 @@ export default [{
   children: [
     ...home,
     ...user,
+	...series,
     ...article,
     ...discussion,
     ...category,

@@ -24,6 +24,12 @@ class PermissionTableSeeder extends Seeder
             ['name' => 'update_user'],
             ['name' => 'destroy_user'],
 
+            // Series
+            ['name' => 'list_series'],
+            ['name' => 'create_series'],
+            ['name' => 'update_series'],
+            ['name' => 'destroy_series'],
+
             // Article
             ['name' => 'list_article'],
             ['name' => 'create_article'],

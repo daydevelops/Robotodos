@@ -7,6 +7,11 @@ export default [{
 }, {
   label: 'sidebar.modules.content',
   children: [{
+    label: 'sidebar.series',
+    permission: 'LIST_SERIES',
+    icon: 'fab fa-buffer',
+    uri: { name: 'dashboard.series' }
+  }, {
     label: 'sidebar.article',
     permission: 'LIST_ARTICLE',
     icon: 'fas fa-book',
