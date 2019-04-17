@@ -14,7 +14,7 @@ class AddDescriptionToSeries extends Migration
     public function up()
     {
         Schema::table('series', function (Blueprint $table) {
-			$table->text('description');
+			$table->text('description')->nullable();
         });
     }
 
