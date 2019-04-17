@@ -27,7 +27,8 @@ class SeriesTest extends TestCase
 	/** @test */
 	public function an_admin_can_create_a_series() {
 		$this->post('/api/series/new',[
-			'name'=>'foobar'
+			'name'=>'foobar',
+			'description'=>'lorem ipsum'
 		]);
 		$this->assertDatabaseHas('series',['name'=>'foobar']);
 	}
@@ -35,7 +36,10 @@ class SeriesTest extends TestCase
 	/** @test */
 	public function an_admin_can_update_a_series_name() {
 		$series = factory('App\Series')->create(['name'=>'foobar']);
-		$this->json('patch','api/series/'.$series->id,['name'=>'lorem_ipsum']);
+		$this->json('patch','api/series/'.$series->id,[
+			'name'=>'lorem_ipsum',
+			'description'=>'lorem ipsum'
+		]);
 		$this->assertDatabaseHas('series',['name'=>'lorem_ipsum']);
 	}
 

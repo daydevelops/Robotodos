@@ -46,6 +46,7 @@ class SeriesController extends ApiController
 	{
 		$validatedData = $request->validate([
 			'name' => 'required|max:140',
+			'description' => 'required|max:280',
 		]);
 		Series::create($validatedData);
 	}
@@ -87,6 +88,7 @@ class SeriesController extends ApiController
 	{
 		$validatedData = $request->validate([
 			'name' => 'required|max:140',
+			'description' => 'required|max:280',
 		]);
 		$series->update($validatedData);
 	}

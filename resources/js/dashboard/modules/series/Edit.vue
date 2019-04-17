@@ -1,12 +1,29 @@
 <template>
 	<div id="edit-wrap">
 		<div class='text-center'>
-			<div class=" form-inline d-inline">
-				<label class="sr-only" for="series-name">Name</label>
-				<input type="text" class="form-control mb-2" id="series-name">
 
-				<button class="btn btn-primary mb-2" @click="updateName">Update Name</button>
-			</div>
+				<form @submit.prevent="updateInfo">
+					<div class="form-group" id="info-form-wrap">
+						<div class="row">
+							<label for="name" class="col-sm-2 col-form-label">Name</label>
+							<div class="col-sm-10">
+								<input type="text" id="series-name" name="name" class="form-control">
+							</div>
+						</div>
+						<div class="row">
+							<label for="description" class="col-sm-2 col-form-label">Description</label>
+							<div class="col-sm-10">
+								<textarea id="series-desc" name="description" class="form-control" rows='2'>
+								</textarea>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-sm-3 offset-6 text-right">
+								<button type="submit" class="btn btn-success form-control d-inline">Update</button>
+							</div>
+						</div>
+					</div>
+				</form>
 		</div>
 		<br><hr><br>
 		<div>
@@ -64,6 +81,7 @@ export default {
 			// debugger
 			this.articles_available = response.data.articles_available;
 			$('#series-name').val(this.series.name);
+			$('#series-desc').val(this.series.description);
 		})
 	},
 	methods: {
@@ -101,8 +119,11 @@ export default {
 				toastr.success('Series updated!')
 			})
 		},
-		updateName() {
-			this.$http.patch('series/' + this.$route.params.id, {name:$('#series-name').val()})
+		updateInfo() {
+			this.$http.patch('series/' + this.$route.params.id, {
+				name:$('#series-name').val(),
+				description:$('#series-desc').val()
+			})
 			.then((response) => {
 				toastr.success('Series updated!')
 			})
@@ -129,7 +150,7 @@ export default {
 #edit-wrap {
 	margin:20px 0px;
 }
-#series-name {
+#series-name, #series-desc{
 	width:75%;
 }
 
