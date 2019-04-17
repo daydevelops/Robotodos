@@ -43,7 +43,7 @@ return [
 		studying web development and tinkering with the odd robotics project. Eventually I realized that a lot of
 		what I have learned along the way could help others on the same path.<br><br> So stick around for
 		a while if you enjoy reading about technical tutorials, soft skills learning, and web development lessons
-		I have learned the hard way, so you dont have to.<br><br> Please feel free to comment or post in the forum if you
+		I have learned the hard way, so you dont have to.<br><br> Please feel free to comment or contact me if you
 		have something to say.'
 	],
 
