@@ -61,7 +61,7 @@ methods: {
 				}
 			})
 		} else if (action == 'view-item') {
-			window.open('/' + data.slug, '_blank');
+			window.open('/series/' + data.id, '_blank');
 		}
 	},
 }
