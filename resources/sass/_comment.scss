@@ -4,14 +4,14 @@
     background: #ECF0F1;
 
     a {
-      color: #7F8C8D;
+      color: #222;
     }
   }
   .box-body {
     border: 1px solid #ECF0F1;
     border-radius: 5px;
     background-color: #fff;
-    color: #7F8C8D;
+    color: #222;
   }
   .media {
     padding-top: 20px;
@@ -55,7 +55,7 @@
     }
   }
   .none {
-    color: #c5c5c5;
+    color: #222;
     font-size: 16px;
   }
 }
@@ -71,7 +71,7 @@
 
 .comment-body {
   padding: 30px 50px;
-  color: #34495e;
+  color: #222;
   display: grid;
 
   a {
