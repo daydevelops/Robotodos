@@ -6,6 +6,8 @@ use App\Article;
 use App\Scopes\DraftScope;
 use Illuminate\Http\Request;
 use App\Http\Requests\ArticleRequest;
+use App\Mail\NewArticlePublished;
+use Illuminate\Support\Facades\Mail;
 
 class ArticleController extends ApiController
 {
@@ -106,6 +108,12 @@ class ArticleController extends ApiController
 	public function notifyTest(Request $request, Article $article) {
 		if (!auth()->user()->is_admin) {
 			return response()->json([],403);
-		}
+        }
+        Mail::to(auth()->user())->send(new NewArticlePublished($article));
+        if (Mail::failures()) {
+            return response()->json([],200);
+        } else {
+            return response()->json([],500);
+        }
 	}
 }

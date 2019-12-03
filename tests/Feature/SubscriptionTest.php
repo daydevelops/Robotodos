@@ -2,9 +2,11 @@
 
 namespace Tests\Feature;
 
+use App\Mail\NewArticlePublished;
 use Tests\TestCase;
 use App\Subscriber;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
+use Illuminate\Support\Facades\Mail;
 
 class SubscriptionTest extends TestCase
 {
@@ -72,19 +74,18 @@ class SubscriptionTest extends TestCase
 		$this->assertDatabaseMissing('subscribers',['email'=>$this->email]);
 	}
 
-	// /** @test */
-	// public function an_admin_can_send_a_test_notification_for_a_post() {
-	// 	$post = factory('App\Article')->create();
-	// 	$this->signIn();
-	// 	$response = $this->post('/api/article/notifyTest/'.$post->id);
-	// 	dd($response);
-	// 	$this->assertDatabaseHas('notifications',[
-	// 		'notifiable_id'=>auth()->id(),
-	// 		'notifiable_type'=>'App\User',
-	// 		'type'=>'App\Notifications\newArticlePublished',
-	// 	]);
-	// }
-	//
+	/** @test */
+	public function an_admin_can_send_a_test_notification_for_a_post() {
+		$post = factory('App\Article')->create();
+		$this->actingAsAdmin(); // why is this performing 2 assertions?
+
+		Mail::fake();
+		Mail::assertNothingSent();
+		$response = $this->post('/api/article/notifyTest/'.$post->id);
+		Mail::assertSent(NewArticlePublished::class);
+		
+	}
+	
 	// /** @test */
 	// public function an_admin_can_send_notifications_for_a_post() {
 	// 	$post = factory('App\Article')->create();
