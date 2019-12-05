@@ -38,7 +38,8 @@ class Article extends Model
         'is_original',
         'published_at',
 		'series_id',
-		'number_in_series'
+        'number_in_series',
+        'needs_account'
     ];
 
     protected $casts = [

@@ -85,6 +85,17 @@
 							</label>
 						</div>
 					</div>
+					<div class="col-sm-2 col-form-label">
+						Account Required?
+					</div>
+					<div class="col-sm-2">
+						<div class="togglebutton" style="margin-top: 6px">
+							<label>
+								<input type="checkbox" name="needs_account" v-model="article.needs_account">
+								<span class="toggle"></span>
+							</label>
+						</div>
+					</div>
 				</div>
 			</div>
 			<div class="col-sm-12">
