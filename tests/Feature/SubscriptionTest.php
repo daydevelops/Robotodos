@@ -6,7 +6,9 @@ use App\Mail\NewArticlePublished;
 use Tests\TestCase;
 use App\Subscriber;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
+use Illuminate\Support\Facades\Queue;
 use Illuminate\Support\Facades\Mail;
+use App\Jobs\NotifySubscribers;
 
 class SubscriptionTest extends TestCase
 {
@@ -86,11 +88,15 @@ class SubscriptionTest extends TestCase
 		
 	}
 	
-	// /** @test */
-	// public function an_admin_can_send_notifications_for_a_post() {
-	// 	$post = factory('App\Article')->create();
-	// 	$this->signIn();
-	//
-	// }
+	/** @test */
+	public function an_admin_can_send_notifications_for_a_post() {
+		$post = factory('App\Article')->create();
+		$this->actingAsAdmin(); // why is this performing 2 assertions?
 
+		Mail::fake();
+		Queue::fake();
+		Mail::assertNothingSent();
+		$response = $this->post('/api/article/notify/'.$post->id);
+		Queue::assertPushed(NotifySubscribers::class);
+	}
 }

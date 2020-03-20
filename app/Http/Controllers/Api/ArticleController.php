@@ -3,10 +3,13 @@
 namespace App\Http\Controllers\Api;
 
 use App\Article;
+use App\Subscriber;
 use App\Scopes\DraftScope;
 use Illuminate\Http\Request;
 use App\Http\Requests\ArticleRequest;
+use App\Jobs\NotifySubscribers;
 use App\Mail\NewArticlePublished;
+use App\User;
 use Illuminate\Support\Facades\Mail;
 
 class ArticleController extends ApiController
@@ -110,10 +113,18 @@ class ArticleController extends ApiController
 			return response()->json([],403);
         }
         Mail::to(auth()->user())->send(new NewArticlePublished($article));
-        if (Mail::failures()) {
+        if (!Mail::failures()) {
             return response()->json([],200);
         } else {
             return response()->json([],500);
         }
-	}
+    }
+    
+    public function notify(Request $request, Article $article) {
+		if (!auth()->user()->is_admin) {
+			return response()->json([],403);
+        }
+        $subscribers = Subscriber::all()->pluck('email');
+        NotifySubscribers::dispatch($subscribers,$article);
+    }
 }

@@ -25,7 +25,8 @@ Route::group([
     // Article
     Route::get('article', 'ArticleController@index')->name('api.article.index')->middleware(['permission:list_article']);
     Route::post('article', 'ArticleController@store')->name('api.article.store')->middleware(['permission:create_article']);
-	Route::post('article/notifyTest/{article}', 'ArticleController@notifyTest');
+	Route::post('article/notifyTest/{article}', 'ArticleController@notifyTest')->name('api.article.notifyTest');
+	Route::post('article/notify/{article}', 'ArticleController@notify')->name('api.article.notify');
 	Route::get('article/{id}/edit', 'ArticleController@edit')->name('api.article.edit')->middleware(['permission:update_article']);
     Route::patch('article/{id}', 'ArticleController@update')->name('api.article.update')->middleware(['permission:update_article']);
     Route::delete('article/{id}', 'ArticleController@destroy')->name('api.article.destroy')->middleware(['permission:destroy_article']);
