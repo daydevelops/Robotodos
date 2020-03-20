@@ -15,9 +15,9 @@ class UsersTableSeeder extends Seeder
     {
         $users = [
             [
-                'name' => 'admin',
-                'email' => 'admin@admin.com',
-                'password' => Hash::make('admin'),
+                'name' => config('blog.admin_name'),
+                'email' => config('blog.admin_email'),
+                'password' => Hash::make(config('blog.admin_password')),
                 'status' => true,
                 'is_admin' => true,
                 'confirm_code' => str_random(64),
@@ -25,14 +25,14 @@ class UsersTableSeeder extends Seeder
                 'updated_at'  => Carbon::now()
             ]
         ];
-		if (User::where(['email'=>'admin@admin.com'])->count()==0) {
+		if (User::where(['email'=>config('blog.admin_email')])->count()==0) {
        		DB::table('users')->insert($users);
 		}
-		if (User::where(['email'=>'adamday1618@gmail.com'])->count()==0) {
+		if (User::where(['email'=>'test@test.com'])->count()==0) {
 			factory(User::class,1)->create([
-				'name' => 'adam',
-				'email' => 'adamday1618@gmail.com',
-				'password' => Hash::make('adam'),
+				'name' => 'test',
+				'email' => 'test@test.com',
+				'password' => Hash::make('test'),
 			]);
 		}
         factory(User::class, 10)->create();
