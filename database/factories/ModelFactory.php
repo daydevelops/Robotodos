@@ -112,3 +112,9 @@ $factory->define(App\Visitor::class, function (Faker\Generator $faker) {
         'clicks'     => $num
     ];
 });
+
+$factory->define(App\Subscriber::class, function (Faker\Generator $faker) {
+    return [
+        'email' => $faker->safeEmail,
+    ];
+});
