@@ -1,7 +1,7 @@
 @if ($paginator->hasPages())
 <div class="text-center">
-    <div class="pagination pagination-minimal">
-        <ul>
+    <div class="pagination pagination-minimal mb-4">
+        <ul id="pagination-ul">
             {{-- Previous Page Link --}}
             @if ($paginator->onFirstPage())
                 <li class="previous disabled"><span><i class="fas fa-chevron-left"></i></span></li>

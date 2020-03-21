@@ -177,3 +177,12 @@ code span {
 	font-weight:bold;
 	text-transform:capitalize;
 }
+#pagination-ul li span, #pagination-ul li a{
+    color:rgb(123, 123, 123);
+}
+.pagination {
+	min-width:200px;
+}
+#pagination-ul {
+	width:100%;
+}
