@@ -11,16 +11,24 @@ class SubscriberController extends Controller
 		if (auth()->check()) {
 			auth()->user()->subscribe();
 		} else if (!Subscriber::where(['email'=>request('email')])->exists()) {
-			Subscriber::create(['email'=>request('email')]);
+			$key_found = false;
+			while( ! $key_found) {
+				$key = rand(0,999999999);
+				$key_found = !Subscriber::where(['key'=>$key])->exists();
+			}
+			Subscriber::create([
+				'email'=>request('email'),
+				'key' => $key
+			]);
 		}
 		return back();
 	}
 
-	public function destroy() {
+	public function destroy($key) {
 		if (auth()->check()) {
 			auth()->user()->unsubscribe();
 		} else {
-			Subscriber::where(['email'=>request('email')])->delete();
+			Subscriber::where(['key'=>$key])->delete();
 		}
 	}
 }

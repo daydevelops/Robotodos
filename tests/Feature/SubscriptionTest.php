@@ -62,7 +62,8 @@ class SubscriptionTest extends TestCase
 	public function a_user_can_unsubscribe() {
 		$this->signIn();
 		auth()->user()->subscribe();
-		$res = $this->json('POST','/unsubscribe');
+		$key = \App\Subscriber::first()->key;
+		$res = $this->get('/unsubscribe/'.$key);
 		$this->assertDatabaseMissing('subscribers',[
 			'email'=>auth()->user()->email,
 		]);
@@ -72,7 +73,8 @@ class SubscriptionTest extends TestCase
 	public function a_guest_can_unsubscribe() {
 		$this->subscribe();
 		$this->assertDatabaseHas('subscribers',['email'=>$this->email]);
-		$res = $this->json('POST','unsubscribe',['email'=>$this->email]);
+		$key = \App\Subscriber::first()->key;
+		$res = $this->get('/unsubscribe/'.$key);
 		$this->assertDatabaseMissing('subscribers',['email'=>$this->email]);
 	}
 

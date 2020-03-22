@@ -6,6 +6,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class Subscriber extends Model
 {
-    protected $fillable = ['email','user_id'];
+    protected $fillable = ['email','user_id','key'];
 
 }

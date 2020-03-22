@@ -71,11 +71,12 @@ Route::group(['prefix' => 'dashboard', 'middleware' => ['auth', 'admin']], funct
 	Route::get('{path?}', 'HomeController@dashboard')->where('path', '[\/\w\.-]*');
 });
 
+// Subscription
+Route::post('subscribe','SubscriberController@store');
+Route::get('unsubscribe/{key}','SubscriberController@destroy');
+
 // Article
 Route::get('/', 'ArticleController@index');
 Route::get('{slug}', 'ArticleController@show');
 
 
-// Subscription
-Route::post('subscribe','SubscriberController@store');
-Route::post('unsubscribe','SubscriberController@destroy');

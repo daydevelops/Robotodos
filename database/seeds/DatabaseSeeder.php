@@ -37,6 +37,7 @@ class DatabaseSeeder extends Seeder
 			$this->call(LinksTableSeeder::class);
 			$this->call(VisitorsTableSeeder::class);
 			$this->call(PermissionTableSeeder::class);
+			$this->call(SubscriberTableSeeder::class);
 		}
 	}
 }

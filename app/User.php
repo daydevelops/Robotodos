@@ -137,10 +137,17 @@ class User extends Authenticatable
 
 	public function subscribe() {
 		if ($this->subscription()->exists()) return;
+        $key_found = false;
+        while( ! $key_found) {
+            $key = rand(0,999999999);
+            $key_found = !Subscriber::where(['key'=>$key])->exists();
+        }
         $this->subscription()->create([
 			'email'=>$this->email,
-			'user_id'=>$this->id
-		]);
+            'user_id'=>$this->id,
+            'key' => $key
+        ]);
+        
 	}
 
 	public function unsubscribe() {
