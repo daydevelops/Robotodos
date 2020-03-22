@@ -22,10 +22,10 @@ abstract class TestCase extends BaseTestCase
 			public function __construct() {
 
 			}
-			public function report(\Exception $e) {
+			public function report(\Throwable $e) {
 
 			}
-			public function render($request, \Exception $e) {
+			public function render($request, \Throwable $e) {
 				throw $e;
 			}
 		});
@@ -38,7 +38,7 @@ abstract class TestCase extends BaseTestCase
     public function actingAsAdmin()
     {
         Passport::actingAs(
-            factory(User::class, 'admin')->create(),
+            factory(User::class)->create(['is_admin'=>1]),
             ['user', 'article']
         );
 

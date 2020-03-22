@@ -13,7 +13,7 @@ class SeriesTest extends TestCase
 	public function setup():void {
 		parent::setup();
 		$this->artisan('db:seed', ['--class' => 'PermissionTableSeeder']);
-			$this->actingAsAdmin();
+		$this->actingAsAdmin();
 	}
 
 	/** @test */
