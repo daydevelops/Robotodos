@@ -5,7 +5,7 @@
     "license": "MIT",
     "type": "project",
     "require": {
-        "php": ">=7.2.5",
+        "php": ">=7.4",
         "dflydev/apache-mime-types": "^1.0",
         "doctrine/dbal": "^2.9",
         "erusev/parsedown": "^1.7",

@@ -14,7 +14,7 @@ class NotifySubscribers implements ShouldQueue
 {
     use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
 
-    protected $emails;
+    protected $subs;
     protected $article;
     /**
      * Create a new job instance.
