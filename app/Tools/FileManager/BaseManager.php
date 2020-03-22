@@ -247,7 +247,7 @@ class BaseManager
                 'filename' => $hashName,
                 'original_name' => $file->getClientOriginalName(),
                 'mime' => $mime,
-                'size' => human_filesize($file->getClientSize()),
+                // 'size' => human_filesize($file->getClientSize()),
                 'real_path' => $realPath,
                 'relative_url' => "storage/$realPath",
                 'url' => asset("storage/$realPath"),
