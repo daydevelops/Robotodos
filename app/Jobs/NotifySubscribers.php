@@ -21,9 +21,9 @@ class NotifySubscribers implements ShouldQueue
      *
      * @return void
      */
-    public function __construct($emails,$article)
+    public function __construct($subs,$article)
     {
-        $this->emails = $emails;
+        $this->subs = $subs;
         $this->article = $article;
     }
 
@@ -34,10 +34,8 @@ class NotifySubscribers implements ShouldQueue
      */
     public function handle()
     {
-        // dd($this->emails);
-        echo "hi";
-        foreach ($this->emails as $e) {
-            Mail::to($e)->send(new NewArticlePublished($this->article));
+        foreach ($this->subs as $s) {
+            Mail::to($s['email'])->send(new NewArticlePublished($this->article,$s['key']));
         }
     }
 }

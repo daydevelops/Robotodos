@@ -112,7 +112,7 @@ class ArticleController extends ApiController
 		if (!auth()->user()->is_admin) {
 			return response()->json([],403);
         }
-        Mail::to(auth()->user())->send(new NewArticlePublished($article));
+        Mail::to(auth()->user())->send(new NewArticlePublished($article,"mykey"));
         if (!Mail::failures()) {
             return response()->json([],200);
         } else {
@@ -124,7 +124,8 @@ class ArticleController extends ApiController
 		if (!auth()->user()->is_admin) {
 			return response()->json([],403);
         }
-        $subscribers = Subscriber::all()->pluck('email');
+        $subscribers = Subscriber::all()->toArray();
+
         NotifySubscribers::dispatch($subscribers,$article);
     }
 }

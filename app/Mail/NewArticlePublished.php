@@ -17,9 +17,10 @@ class NewArticlePublished extends Mailable
      *
      * @return void
      */
-    public function __construct(Article $article)
+    public function __construct(Article $article, $key)
     {
         $this->article = $article;
+        $this->key = $key;
     }
 
     /**
@@ -31,7 +32,8 @@ class NewArticlePublished extends Mailable
     {
         $data = [
             'article' => $this->article,
-            'url' => url($this->article->slug)
+            'url' => url($this->article->slug),
+            'key' => $this->key
         ];
         return $this->markdown('mail.new_article_published',$data);
     }

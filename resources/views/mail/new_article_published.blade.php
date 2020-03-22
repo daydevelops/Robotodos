@@ -9,4 +9,6 @@ Continue Reading
 
 Cheers,<br>
 {{ config('app.name') }}
+
+<p><small>Click <a href="{{url('/unsubscribe/'.$key)}}">here</a> to sunsubscribe</small></p>
 @endcomponent
