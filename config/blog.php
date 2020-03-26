@@ -39,7 +39,7 @@ return [
     // Google Analytics
     'google' => [
         'id'   => env('GOOGLE_ANALYTICS_ID', 'Google-Analytics-ID'),
-        'open' => false//env('GOOGLE_OPEN') ?: false
+        'open' => env('GOOGLE_OPEN') ?: false
     ],
 
 	'blog_information' => [
