@@ -75,8 +75,8 @@ Route::group(['prefix' => 'dashboard', 'middleware' => ['auth', 'admin']], funct
 Route::post('subscribe','SubscriberController@store');
 Route::get('unsubscribe/{key}','SubscriberController@destroy');
 
+Route::get('/coffee','DonateController@index');
+
 // Article
 Route::get('/', 'ArticleController@index');
 Route::get('{slug}', 'ArticleController@show');
-
-
