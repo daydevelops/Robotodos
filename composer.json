@@ -16,6 +16,7 @@
         "jcc/laravel-vote": "dev-master",
         "jellybool/flysystem-upyun": "dev-master",
         "jellybool/translug": "~2.0",
+        "laravel/cashier": "^12.4",
         "laravel/framework": "7.0",
         "laravel/helpers": "^1.2",
         "laravel/horizon": "4.0",

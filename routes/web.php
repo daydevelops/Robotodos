@@ -76,6 +76,8 @@ Route::post('subscribe','SubscriberController@store');
 Route::get('unsubscribe/{key}','SubscriberController@destroy');
 
 Route::get('/coffee','DonateController@index');
+Route::get('/coffee/success','DonateController@success');
+Route::post('/charge','DonateController@charge');
 
 // Article
 Route::get('/', 'ArticleController@index');
