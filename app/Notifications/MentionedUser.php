@@ -3,14 +3,16 @@
 namespace App\Notifications;
 
 use App\Comment;
+use App\Mail\UserMentioned;
 use Illuminate\Bus\Queueable;
 use Illuminate\Notifications\Notification;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
+use Illuminate\Support\Facades\Mail;
 
-class MentionedUser extends Notification implements ShouldQueue
+class MentionedUser extends Notification// implements ShouldQueue
 {
-    use Queueable;
+    // use Queueable;
 
     protected $comment;
 
@@ -54,7 +56,7 @@ class MentionedUser extends Notification implements ShouldQueue
             'title' => $comment->commentable->title ]);
 
         $url = ($comment->commentable_type == 'articles')
-                ? url('article', ['slug'=>$comment->commentable->slug])
+                ? url($comment->commentable->slug)
                 : url('discussion', ['id' => $comment->commentable->id]);
 
         $data = [
@@ -64,9 +66,7 @@ class MentionedUser extends Notification implements ShouldQueue
             'url' => $url
         ];
 
-        return (new MailMessage)
-                    ->subject(lang('Someone Mentioned', ['type' => strtolower($type), 'title' => $comment->commentable->title]))
-                    ->markdown('mail.mention.user', $data);
+        Mail::to($notifiable->email)->send(new UserMentioned($comment,$type,$data));
     }
 
     /**
