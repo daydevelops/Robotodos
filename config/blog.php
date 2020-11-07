@@ -55,7 +55,7 @@ return [
     // Article Page
     'article' => [
         'title'       => 'Robotodos',
-        'description' => 'The collected ramblings of a web developer stumbling through the dark.',
+        'description' => 'The collected ramblings of a web developer and his creations.',
         'number'      => 15,
         'sort'        => 'desc',
         'sortColumn'  => 'published_at',
