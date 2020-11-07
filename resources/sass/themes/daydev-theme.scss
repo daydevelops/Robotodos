@@ -1,7 +1,7 @@
 
-$daydev-blue: #5bc0de;
-$daydev-blue2: #44b0de;
-$daydev-bg: #C0FFEE;
+$daydev-blue: #5796D9;
+$daydev-blue2: #6c8eff;
+$daydev-bg: rgb(181, 237, 245);
 
 @import url('https://fonts.googleapis.com/css?family=Oleo+Script');
 @import url('https://fonts.googleapis.com/css?family=Nova+Flat');
@@ -10,7 +10,7 @@ body {
 	color:black;
 	// font-family: 'Nova Flat', cursive;
 	font-size:1.2em;
-	background-color:#C0FFEE;
+	background-color:$daydev-bg;
 }
 .oleo {
 	font-family: 'Oleo Script', cursive;
@@ -185,4 +185,7 @@ code span {
 }
 #pagination-ul {
 	width:100%;
+}
+div.markdown p {
+	margin-bottom:22px;
 }
