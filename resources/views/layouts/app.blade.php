@@ -90,6 +90,17 @@
 	$(function () {
 		$("[data-toggle='tooltip']").tooltip();
 	});
+</script><script src="https://www.google.com/recaptcha/api.js?render={{config('services.recaptcha.site_key')}}"></script>
+<script>
+	function subscribeUser(e) {
+		key = "{{config('services.recaptcha.site_key')}}";
+        grecaptcha.ready(function() {
+          grecaptcha.execute(key, {action: 'submit'}).then(function(token) {
+              document.getElementById('recaptcha').value = token;
+          });
+		});
+		// return false;
+      }
 </script>
 </body>
 

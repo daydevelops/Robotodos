@@ -8,7 +8,7 @@
 				<small>Can't wait to read the latest article?</small>
 			</p>
 		</div>
-		<form id="subscribe-form" class="form" method="post" action="/subscribe">
+		<form id="subscribe-form" class="form" method="post" action="/subscribe" onclick="return subscribeUser()">
 			@csrf
 			<div class="form-group">
 				@if (auth()->check() && !auth()->user()->isSubscribed)
@@ -17,6 +17,7 @@
 					<input type="email" name="email" class="form-control" id="subscribe-email" placeholder="Email address">
 				@endif
 			</div>
+			<input type="hidden" name='recaptcha' id='recaptcha'>
 			<div class="form-group">
 				<button type="submit" class="form-control btn btn-primary text-center" style="width:100%" id="subscribe-submit">
 					Be in the loop!
