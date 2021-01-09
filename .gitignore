@@ -14,5 +14,4 @@ npm-debug.log
 _ide_helper.php
 /storage/oauth-private.key
 /storage/oauth-public.key
-/package-lock.json
 .phpunit.result.cache
